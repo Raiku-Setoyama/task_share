@@ -35,7 +35,6 @@ class TwoFactorAuthController extends Controller
             
             $user->tfa_token = $random_password;            // 4桁のランダムな数字
             $user->tfa_expiration = now()->addMinutes(10);  // 10分間だけ有効
-            // dd('a');
             $user->save();
             
             // メール送信
@@ -43,7 +42,6 @@ class TwoFactorAuthController extends Controller
                 return [
                     'result' => true,
                     'user_id' => $user->id,
-                    'two_factor_auth' => 1,
                 ];
         }
 

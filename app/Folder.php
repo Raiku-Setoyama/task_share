@@ -11,6 +11,8 @@ class Folder extends Model
     //
     use SoftDeletes;
 
+    protected $table = 'folders';
+
     public function tasks(){
 
         return $this->hasMany('App\Task');
