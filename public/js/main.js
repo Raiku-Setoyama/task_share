@@ -1,7 +1,5 @@
 "use strict";
 
-const { valHooks } = require("jquery");
-
 $(function(){
         $(".wheel-button").wheelmenu({
             trigger: "hover", //click" or "hover . Default: "click" どのアクションで開かせるか
