@@ -12,7 +12,8 @@
         "ext-intl": "*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "ext-gd": "*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
