@@ -56,8 +56,10 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        // 'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        // 'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', null),
+        'name' => env('MAIL_FROM_NAME', null)
     ],
 
     /*
@@ -71,7 +73,8 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    // 'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +87,13 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    // 'username' => env('MAIL_USERNAME'),
 
-    'password' => env('MAIL_PASSWORD'),
+    // 'password' => env('MAIL_PASSWORD'),
+
+    'username' => env('MAIL_USERNAME',null),
+
+    'password' => env('MAIL_PASSWORD',null),
 
     /*
     |--------------------------------------------------------------------------
@@ -132,5 +139,7 @@ return [
     */
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
+
+    'pretend' => env('MAIL_PRETEND', false),
 
 ];
