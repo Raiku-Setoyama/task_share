@@ -222,7 +222,21 @@ class GroupController extends Controller
         $delete_group_id = $request->group_id;
         Group::find($delete_group_id)->delete();
 
-        return redirect()->route('group.home');
+        $res="成功";
+        return $res;
+    }
+
+    public function cancel(Request $request)
+    {
+        // グループ参加申請中のキャンセル
+        $user = Auth::user();
+        
+        User::find($user->id)->groups()->detach($request->group_id);
+        $user->group_status=0;
+        $user->save();
+
+        $res="成功";
+        return $res;
     }
 
     // 意図しないURLアクセス対策

@@ -121,6 +121,7 @@ $("#group_delete").on('click',function(){
             },
             success : function($res) {
                 console.log($res);
+                location.href = '/group/home';
             },
             //処理がエラーであれば
             error : function() {
@@ -145,5 +146,37 @@ $(".btn-member").on('click',function(){
 $(".member_list_btn").on('click',function(){
     $(".member_table").toggleClass('display_block');
 })
+
+$(".group_cancel").on('click',function(){
+    
+    var $result = confirm('グループへの参加をキャンセルしますか？');
+
+    if($result)
+    {
+        var $group_id = $("#group_cancel").attr('value');
+
+        $.ajax({
+            headers: {
+                // csrf登録しないとダメ
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }, 
+            type: "POST",
+            url: "/group/cancel",
+            data: { 
+                'group_id' : $group_id
+            },
+            success : function($res) {
+                console.log($res);
+                location.href = '/group/home';
+            },
+            //処理がエラーであれば
+            error : function() {
+                alert('通信エラー');
+            }
+        });
+    }
+})
+
+
 
 

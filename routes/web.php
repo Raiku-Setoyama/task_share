@@ -68,6 +68,8 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/groups/{id}/folders/{folder_id}/user/{user_id}/right','GroupController@right')->name('group.right');
     // グループ削除
     Route::post('/group/delete','GroupController@delete');
+    // グループ参加キャンセル
+    Route::post('/group/cancel','GroupController@cancel');
 
     //トップページ　グループ作成済みならタスク画面、そうでないなら作成画面へいく
     Route::get('/group/home','GroupController@home')->name('group.home');
