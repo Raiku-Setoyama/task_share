@@ -1,12 +1,13 @@
 "use strict";
 
 $(function(){
-        $(".wheel-button").wheelmenu({
-            trigger: "hover", //click" or "hover . Default: "click" どのアクションで開かせるか
-            animation: "fly", //"fade" or "fly". Default: "fade" 表示方法
-            animationSpeed: "slow", //"instant", "fast", "medium", or "slow". Default: "medium" スピード
-            angle: "all" //"all", "N", "NE", "E", "SE", "S", "SW", "W", "NW", or even array [0, 360]. Default: "all" or [0, 360] 表示角度
-        });
+    $(".wheel-button").wheelmenu({
+        trigger: "hover", //click" or "hover . Default: "click" どのアクションで開かせるか
+        animation: "fly", //"fade" or "fly". Default: "fade" 表示方法
+        animationSpeed: "slow", //"instant", "fast", "medium", or "slow". Default: "medium" スピード
+        angle: "all" //"all", "N", "NE", "E", "SE", "S", "SW", "W", "NW", or even array [0, 360]. Default: "all" or [0, 360] 表示角度
+    });
+});
 
 $(".drag").draggable();
 $(".container").droppable({
@@ -98,7 +99,6 @@ $("body").droppable({
         }
     });
 }
-});
 });
 
 $("#group_delete").on('click',function(){
