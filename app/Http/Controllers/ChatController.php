@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Comment;
 use App\Group;
 use App\GroupTask;
+use App\TaskMemo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,14 @@ class ChatController extends Controller
         $id=$id;
         $folder_id=$folder_id;
         $task_id=$task->id;
-        $user_id = Auth::user()->id;
+        $user = Auth::user();
+
+        if($task->task_memos()->first())
+        {
+            $task_memos = $task->task_memos()->orderBy('created_at', 'desc')->get();
+        }else{
+            $task_memos= null;
+        }
 
         return view('grouptask/chat',compact(
             'comments',
@@ -31,7 +39,8 @@ class ChatController extends Controller
             'id',
             'folder_id',
             'task_id',
-            'user_id',
+            'user',
+            'task_memos',
         ));
     }
 
@@ -73,6 +82,26 @@ class ChatController extends Controller
             "user" => $user,
         ];
         return response()->json($json);
+    }
+
+    public function add_memo(int $id, int $folder_id, int $task_id, Request $request)
+    {
+        // タスクのメモを作成
+        if($request->title)
+        {
+            $memos = new TaskMemo;
+            $memos->title = $request->title;
+            $memos->memo = $request->memo;
+            $memos->user_id = Auth::user()->id;
+            GroupTask::find($task_id)->task_memos()->save($memos);
+        }
+
+        return redirect()->route('chats.index',
+        [
+            'id' => $id,
+            'folder_id' => $folder_id,
+            'task_id' => $task_id,
+        ]);
     }
 
     // 意図しないURLアクセス対策

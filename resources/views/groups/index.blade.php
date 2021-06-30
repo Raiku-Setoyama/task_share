@@ -20,40 +20,62 @@
     </div>
     @endforeach
 </div>
-<div class="member_list" id="member_list">
-    @can('isAdmin')
-    <div class="member_admin">
-    <h3 class="member_admin_title">管理者メニュー</h3>
-    <p>参加許可待ちユーザー</p>
-    @foreach($wait_users as $user)
-    <li><span>{{ $user->name }}</span><a href ="{{ route('group.right', ['id' => $group->id , 'folder_id' => $current_folder_id, 'user_id' => $user->id]) }}" method='get' class="member_right">許可</a></li>
-    @endforeach
-    <a value="{{ $group->id }}" id="group_delete" class="group_delete">グループを削除</a>
-    </div>
-    @endcan
-    <div class="member_menu">
-        <h3><span class="member_list_btn">+</span><span class="member_list_title">メンバーメニュー</span></h3>
-        <table class="member_table">
-            <th>メンバー名</th>
-            <th>タスク数</th>
-            @foreach($group_members as $member)
-            @if($member->group_status == 2)
-            <tr>
-                <td class="member_name">
-                {{ $member->name}}
-                </td>
-                @if($user_id_count)
-                @foreach( $user_id_count as $key => $val)
-                @if($key == $member->id)
-                <td class="member_task_count"><span>{{ $val }}</span></td>
-                @endif
-                @endforeach
-                @endif
-            </tr>
-            @endif
-            @endforeach
-            <tr><td><a href="{{ route('group.out',[ 'id' => $group->id]) }}">グループを退会</a></td></tr>
-        </table>
+<div class="basic_menu group_menu">
+    <div class="basic_menu_container">
+        <p class="menu_title">{{ $group->name }}</p>
+        @can('isAdmin')
+        <div class="menu_item">
+            <div class="menu_item_top">
+                <p class="menu_item_title">管理者メニュー</p>
+            </div>
+            <div class="menu_item_tab">
+                <p class="menu_item_tab_title">参加待ちユーザー<span class="wait_user_count">{{ count($wait_users) }}</span><span class="menu_item_tab_open_btn">></span></p>
+                <div class="menu_item_tab_open wait_user">
+                    @if(count($wait_users) != 0)
+                    @foreach($wait_users as $user)
+                    <li><span>{{ $user->name }}</span><a href ="{{ route('group.right', ['id' => $group->id , 'folder_id' => $current_folder_id, 'user_id' => $user->id]) }}" method='get' class="member_right">許可</a></li>
+                    @endforeach
+                    @else
+                    <p>参加待ちユーザーはいません</p>
+                    @endif
+                </div>
+            </div>
+            <div class="menu_item_tab">
+                <p class="menu_item_tab_title"><a href="#" value="{{ $group->id }}" id="group_delete">グループを削除</a></p>
+            </div>
+        </div>
+        @endcan
+        <div class="menu_item">
+            <div class="menu_item_top">
+                <p class="menu_item_title">メンバーメニュー</p>
+            </div>
+            <div class="menu_item_tab">
+                <p class="menu_item_tab_title">メンバーリスト<span class="menu_item_tab_open_btn">></span></p>
+                <table class="menu_item_tab_open group_member">
+                    <th>メンバー名</th>
+                    <th>タスク数</th>
+                    @foreach($group_members as $member)
+                    @if($member->group_status == 2)
+                    <tr>
+                        <td class="member_name">
+                        {{ $member->name}}
+                        </td>
+                        @if($user_id_count)
+                        @foreach( $user_id_count as $key => $val)
+                        @if($key == $member->id)
+                        <td class="member_task_count"><span>{{ $val }}</span></td>
+                        @endif
+                        @endforeach
+                        @endif
+                        </tr>
+                    @endif
+                    @endforeach
+                </table>
+            </div>
+            <div class="menu_item_tab">
+                <p class="menu_item_tab_title"><a href="{{ route('group.out',[ 'id' => $group->id ]) }}">グループを退会</a></p>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
@@ -132,7 +154,7 @@
                     </tbody>
                 </table>
                 <div class="to_chat">
-                    <a class="chat-btn" href="{{ route('chats.index',[ 'id' => $group->id , 'folder_id' => $current_folder_id, 'task_id' => $task->id]) }}">Chat</a>
+                    <a class="chat-btn" href="{{ route('chats.index',[ 'id' => $group->id , 'folder_id' => $current_folder_id, 'task_id' => $task->id]) }}">More</a>
                     <div class="option">
                         <a href="{{ route('group_tasks.edit', ['id' => $group->id, 'folder_id' => $current_folder_id , 'task_id' => $task->id]) }}" method="post" class="edit_change_btn">
                             編集
@@ -150,4 +172,3 @@
 @section('scripts')
 <script src="{{ asset('/js/jquery.wheelmenu.js') }}"></script>
 @endsection
-

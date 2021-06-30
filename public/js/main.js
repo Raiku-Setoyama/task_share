@@ -1,13 +1,12 @@
 "use strict";
 
 $(function(){
-    $(".wheel-button").wheelmenu({
-        trigger: "hover", //click" or "hover . Default: "click" どのアクションで開かせるか
-        animation: "fly", //"fade" or "fly". Default: "fade" 表示方法
-        animationSpeed: "slow", //"instant", "fast", "medium", or "slow". Default: "medium" スピード
-        angle: "all" //"all", "N", "NE", "E", "SE", "S", "SW", "W", "NW", or even array [0, 360]. Default: "all" or [0, 360] 表示角度
-    });
-});
+        $(".wheel-button").wheelmenu({
+            trigger: "hover", //click" or "hover . Default: "click" どのアクションで開かせるか
+            animation: "fly", //"fade" or "fly". Default: "fade" 表示方法
+            animationSpeed: "slow", //"instant", "fast", "medium", or "slow". Default: "medium" スピード
+            angle: "all" //"all", "N", "NE", "E", "SE", "S", "SW", "W", "NW", or even array [0, 360]. Default: "all" or [0, 360] 表示角度
+        });
 
 $(".drag").draggable();
 $(".container").droppable({
@@ -131,22 +130,6 @@ $("#group_delete").on('click',function(){
     }
 })
 
-$(".btn-complete-task").on('click',function(){
-    $(".container").addClass('move-right');
-    $(".complete_task_list").addClass('display_block');
-})
-$(".complete_task_list").on('click',function(){
-    $(".container").removeClass('move-right');
-    $(".complete_task_list").removeClass('display_block');
-})
-$(".btn-member").on('click',function(){
-    $(".container").toggleClass('move-left');
-    $(".member_list").toggleClass('display_block');
-})
-$(".member_list_btn").on('click',function(){
-    $(".member_table").toggleClass('display_block');
-})
-
 $(".group_cancel").on('click',function(){
     
     var $result = confirm('グループへの参加をキャンセルしますか？');
@@ -176,6 +159,36 @@ $(".group_cancel").on('click',function(){
         });
     }
 })
+
+
+// clickイベント
+$(".btn-complete-task").on('click',function(){
+    $(".container").addClass('move-right');
+    $(".complete_task_list").addClass('display_block');
+})
+$(".complete_task_list").on('click',function(){
+    $(".container").removeClass('move-right');
+    $(".complete_task_list").removeClass('display_block');
+})
+$(".btn-member").on('click',function(){
+    $(".container").toggleClass('move-left');
+    $(".member_list").toggleClass('display_block');
+})
+$(".member_list_btn").on('click',function(){
+    $(".member_table").toggleClass('display_block');
+})
+});
+
+$(".menu_item_title_btn").on('click',function(){
+    console.log(3);
+    $(".menu_item_tab.memo_input").toggleClass('display_block');
+});
+
+$(".menu_item_tab_open_btn").on('click',function(){
+    console.log(3);
+    let num=$(this).index(".menu_item_tab_open_btn");
+    $('.menu_item_tab_open').eq(num).toggleClass('display_block');
+});
 
 
 

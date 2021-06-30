@@ -144,31 +144,34 @@ class TaskController extends Controller
 
     public function showAddForm(int $id, int $folder_id, int $task_id)
     {
-        $this->checkRelation($id);
+        // 不正なURLアクセス対策
+        if(Auth::user()->groups()->first()->id != $id)
+        {
+            abort(404);
 
-        //グループタスクを個人タスクへ追加する画面表示   
-
-        // コピーするタスクの情報
-        $copy_task=GroupTask::find($task_id);
-
-        // 保存先フォルダ
-        $user_id=Auth::user()->id;
-        $folders=User::find($user_id)->folders()->get();
-
-        $current_group_id=$id;
-        $current_folder_id=$folder_id;
-
-        return view('tasks/add',compact(
-            'copy_task',
-            'folders',
-            'current_group_id',
-            'current_folder_id'));
+        }else{
+            //グループタスクを個人タスクへ追加する画面表示   
+    
+            // コピーするタスクの情報
+            $copy_task=GroupTask::find($task_id);
+    
+            // 保存先フォルダ
+            $user_id=Auth::user()->id;
+            $folders=User::find($user_id)->folders()->get();
+    
+            $current_group_id=$id;
+            $current_folder_id=$folder_id;
+    
+            return view('tasks/add',compact(
+                'copy_task',
+                'folders',
+                'current_group_id',
+                'current_folder_id'));
+        }
     }
 
     public function add(int $id, int $folder_id, int $task_id, AddTask $request)
     {
-        $this->checkRelation($id);
-
         //グループタスクを個人タスクへ追加
         // フォルダに紐づけてDBに保存
 

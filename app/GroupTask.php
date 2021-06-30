@@ -57,5 +57,8 @@ class GroupTask extends Model
     {
         return $this->hasMany('App\Comment','task_id','id');
     }
-
+    public function task_memos()
+    {
+        return $this->hasMany('App\TaskMemo','task_id','id');
+    }
 }

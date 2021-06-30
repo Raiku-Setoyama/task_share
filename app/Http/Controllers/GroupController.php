@@ -45,7 +45,10 @@ class GroupController extends Controller
                     ]);
                 }
             }else{
-                return view('groups/wait');
+
+                $user_group=$user->groups()->first();
+
+                return view('groups/wait',compact('user_group'));
             }
         }else{
             $results=[];
@@ -221,10 +224,9 @@ class GroupController extends Controller
     {
         $delete_group_id = $request->group_id;
         Group::find($delete_group_id)->delete();
-
+        
         $res="成功";
-        return $res;
-    }
+        return $res;    }
 
     public function cancel(Request $request)
     {
@@ -248,5 +250,6 @@ class GroupController extends Controller
         }
     }
 }
+
 
 

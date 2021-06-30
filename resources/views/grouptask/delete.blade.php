@@ -7,55 +7,46 @@
 
 @section('content')
 <div class="task_container delete">
-    <div class="task_att delete">
-        <p>Delete Task</p>
+<h2>Delete Task</h2>           
+    @if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $message)
+        <p>{{ $message }}</p>
+        @endforeach
     </div>
-    <div class="task_message">Delete</div>
-    <div class="task_action">
-        <div class="memo-top"></div>
-        <p class="delete_confirm">以下のタスクを削除しますか？</p>
-        <div class="task_input">
-            <form 
-                action="{{ route('group_tasks.delete', ['id' => $group_id, 'folder_id' => $folder_id, 'task_id' => $task->id]) }}"
-                method="POST">
-            @csrf
-            <div class="task_input_group">
-            <p class="task_item">
-                タイトル
-            </p>
-            <p>{{$task->title}}</p>
-            </div>
-            <div class="task_input_group">
-                @if($task->status == 0)
-                <p class="task_item">
-                状態
-                </p>
-                <p>未着手</p>
-                @endif
-                @if($task->status == 1)
-                <p class="task_item">
-                状態
-                </p>
-                <p>着手中</p>
-                @endif
-                @if($task->status == 2)
-                <p class="task_item">
-                状態
-                </p>
-                <p>完了</p>
-                @endif
-            </div>
-            <div class="task_input_group">
-                <p class="task_item">
-                期限日
-                </p>
-                <p>{{$task->due_date}}</p>
-            </div>
-        </div>
+    @endif
+    <p class="delete_confirm">以下のタスクを削除しますか？</p>
+    <form method="post" action="{{ route('group_tasks.delete', ['id' => $group_id, 'folder_id' => $folder_id, 'task_id' => $task->id]) }}">
+    @csrf
+    <table>
+        <tr class="task_input_group">
+            <th><p>タイトル</p></th>
+            <td><p>{{$task->title}}</p></td>
+        </tr>
+        <tr class="task_input_group">
+            @if($task->status == 0)
+            <th><p>状態</p></th>
+            <td><p>未着手</p></td>
+            @endif
+            @if($task->status == 1)
+            <th><p>状態</p></th>
+            <td><p>着手中</p></td>
+            @endif
+            @if($task->status == 2)
+            <th><p>状態</p></th>
+            <td><p>完了</p></td>
+            @endif
+        </tr>       
+        <tr class="task_input_group">
+            <th><p>期限</p></th>
+            <td><p>{{$task->due_date}}</p></td>
+        </tr>
+    </table>
+    <div class="task_input_btn">
+        <button type="submit" class="btn">削除</button>
     </div>
+    </form>
 </div>
-<div class="task_input_btn">
-    <button type="submit" class="btn ">削除</button>
-</div>
-</form>
 @endsection
+
+

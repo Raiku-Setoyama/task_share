@@ -42,6 +42,8 @@ Route::group(['middleware' => 'auth'],function(){
     // タスク内チャット機能
     Route::get('/groups/{id}/folders/{folder_id}/tasks/{task_id}/chat','ChatController@index')->name('chats.index');
     Route::post('/groups/{id}/folders/{folder_id}/tasks/{task_id}/chat/add','ChatController@add')->name('chat.add');
+    Route::get('/groups/{id}/folders/{folder_id}/tasks/{task_id}/memo/add', 'ChatController@memo')->name('chat.memo');
+    Route::post('/groups/{id}/folders/{folder_id}/tasks/{task_id}/memo/add', 'ChatController@add_memo');
     Route::get('/result/ajax/', 'ChatController@getData');
     
     // タスクの位置情報受け取り
@@ -79,7 +81,7 @@ Route::group(['middleware' => 'auth'],function(){
 Auth::routes();
 
 // 2段階認証
-Route::get('two_factor_auth/login_form','TwoFactorAuthController@login_form')->name('two_factor_auth');
+Route::get('two_factor_auth/login_form', 'TwoFactorAuthController@login_form')->name('two_factor_auth');
 Route::post('ajax/two_factor_auth/first_auth', 'TwoFactorAuthController@first_auth');
 Route::post('ajax/two_factor_auth/second_auth', 'TwoFactorAuthController@second_auth');
 
