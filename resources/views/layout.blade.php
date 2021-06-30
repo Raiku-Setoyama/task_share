@@ -66,7 +66,11 @@
     document.getElementById('logout-form').submit();
     });
 </script>
-<script src="{{ asset('/js/main.js') }}"></script>
+@if(app('env') == 'heroku')
+    <script src="{{ secure_asset('/js/main.js') }}"></script>
+@else
+    <script src="{{ asset('/js/main.js') }}"></script>
+@endif
 @endif
 @yield('scripts')
 </body>
