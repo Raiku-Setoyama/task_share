@@ -9,7 +9,11 @@
 <link rel="shortcut icon" href="/img/icon_star.png"/>
 <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 <link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="{{ mix('styles/style.css')}}">
+@if(app('env') == 'production')
+    <link href="{{ secure_asset('styles/style.css') }}" rel="stylesheet">
+@else
+    <link href="{{ asset('styles/style.css') }}" rel="stylesheet">
+@endif
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 @yield('styles')
 <script src="{{ asset('js/app.js') }}"></script>

@@ -7,7 +7,11 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Task Share</title>
 <link rel="shortcut icon" href="/img/icon_star.png"/>
-<link rel="stylesheet" href="{{ mix('css/app.css')}}">
+@if(app('env') == 'production')
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+@else
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@endif
 <link rel="stylesheet" href="/styles/header.css">
 @yield('styles')
 </head>
