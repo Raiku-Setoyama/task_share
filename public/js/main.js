@@ -172,13 +172,12 @@ $(".complete_task_list").on('click',function(){
 })
 $(".btn-member").on('click',function(){
     $(".container").toggleClass('move-left');
-    $(".member_list").toggleClass('display_block');
+    $(".basic_menu.group_menu").toggleClass('display_block');
 })
 $(".member_list_btn").on('click',function(){
     $(".member_table").toggleClass('display_block');
 })
 });
-
 $(".menu_item_title_btn").on('click',function(){
     console.log(3);
     $(".menu_item_tab.memo_input").toggleClass('display_block');

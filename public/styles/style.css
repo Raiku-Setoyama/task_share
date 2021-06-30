@@ -845,6 +845,7 @@ body {
 }
 
 .basic_menu.group_menu {
+  display: none;
   position: absolute;
   top: 100px;
   right: 20px;
