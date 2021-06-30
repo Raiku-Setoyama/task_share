@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Task Share</title>
 <link rel="shortcut icon" href="/img/icon_star.png"/>
-@if(app('env') == 'production')
+@if(app('env') == 'heroku')
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 @else
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

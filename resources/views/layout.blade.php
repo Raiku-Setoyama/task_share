@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="/img/icon_star.png"/>
 <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 <link rel="stylesheet" href="/css/styles.css">
-@if(app('env') == 'production')
+@if(app('env') == 'heroku')
     <link href="{{ secure_asset('styles/style.css') }}" rel="stylesheet">
 @else
     <link href="{{ asset('styles/style.css') }}" rel="stylesheet">
