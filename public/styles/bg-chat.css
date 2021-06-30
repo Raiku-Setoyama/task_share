@@ -1,7 +1,35 @@
 .container{
     /*画面いっぱいに画像を配置*/
-    background-image: url("../img/chat_office.jpg");
+    /* background-color:#f4fafa;     */
+    width: 100%;
+    height: 100%;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
+    /* background:rgba(128, 128, 128, 0.1); */
 }
+
+
+
+.people_img img{
+    width: 500px;
+    height: auto;
+    position: absolute;
+    bottom:50px;
+    left: 20px;
+    z-index: -100;
+}
+
+/* ぼかし用 */
+/* .container::before{
+    width: 100%;
+    height: 100%;    content: '';
+    background: inherit;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(10px);
+    position: absolute;
+    z-index: -1;
+} */
