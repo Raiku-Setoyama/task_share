@@ -48,8 +48,8 @@ class FolderController extends Controller
         // フォルダ削除
         Folder::find($id)->delete();
         
-        $folder_id=Folder::first()->id;
-
+        $folder_id=Auth::user()->folders()->first()->id;
+        
         return redirect()->route('tasks.index',[
             'id' =>$folder_id ,
         ]

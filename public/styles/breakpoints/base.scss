@@ -185,6 +185,10 @@ body {
         display: inline-block;
     }
 }
+
+.task_input_btn .btn{
+    margin: 30px auto;
+}
 // グループ詳細ボタン
 .btn-member {
         z-index: 2;
@@ -345,6 +349,10 @@ body {
 // folder
 .folder_container{
     text-align: center;
+    
+    & .btn{
+        margin: 30px auto;
+    }
     
     & h2 {
         color: #55acee;
@@ -765,7 +773,7 @@ body {
         }
     }
 
-// basic_menuのchat/grouo
+// basic_menuのchat/group
 .basic_menu{
     &.task_memos{
         position: absolute;
@@ -819,6 +827,56 @@ body {
         }
     }
 }
+
+// groupのhome画面
+.group{
+    
+    &_container{
+        @extend .folder_container;
+    }
+
+    &_wrapper{
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    &_mes{
+        color: #eed255;
+        font-family: cursive;
+        @extend .font-lg;
+    }
+
+    &_search_result
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+
+        &_name{
+            @extend .font-lr;
+            border-bottom:3px solid rgb(152, 240, 252);
+        }
+
+        &_enter{
+            display: inline-block;
+            color: white;
+            padding:5px 10px;
+            border-radius:10px;
+            text-decoration: none;
+            background-color: rgba(128, 133, 141,0.8);
+            margin-left: 20px;
+
+            &:hover{
+                background-color: rgba(128, 133, 141,1);
+            }
+        }
+}
+}
+
 
 .group_create_input{
     margin-top:30px;

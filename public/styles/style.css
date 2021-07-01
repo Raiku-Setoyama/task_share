@@ -63,11 +63,11 @@ body {
   font-size: 19px;
 }
 
-.font-lr, .task_title, .task_container table th p, .folder_container.create label, .create.task_container label, .folder_container.delete .folder_item, .delete.task_container .folder_item, .complete_task_list_item .item_main_title {
+.font-lr, .task_title, .task_container table th p, .folder_container.create label, .create.task_container label, .create.group_container label, .folder_container.delete .folder_item, .delete.task_container .folder_item, .delete.group_container .folder_item, .complete_task_list_item .item_main_title, .group_search_result_name {
   font-size: 23px;
 }
 
-.font-lg, .header .navbar .my-navbar-brand {
+.font-lg, .header .navbar .my-navbar-brand, .group_mes {
   font-size: 36px;
 }
 
@@ -191,6 +191,10 @@ body {
 
 .btn.group_create {
   display: inline-block;
+}
+
+.task_input_btn .btn {
+  margin: 30px auto;
 }
 
 .btn-member, .btn-complete-task, .btn-complete-group-task {
@@ -351,11 +355,15 @@ body {
   display: inline-block;
 }
 
-.folder_container, .task_container {
+.folder_container, .task_container, .group_container {
   text-align: center;
 }
 
-.folder_container h2, .task_container h2 {
+.folder_container .btn, .task_container .btn, .group_container .btn {
+  margin: 30px auto;
+}
+
+.folder_container h2, .task_container h2, .group_container h2 {
   color: #55acee;
   font-family: cursive;
   font-weight: bold;
@@ -363,7 +371,7 @@ body {
   margin-top: 50px;
 }
 
-.folder_container .textbox, .task_container .textbox {
+.folder_container .textbox, .task_container .textbox, .group_container .textbox {
   margin-top: 0;
   font-family: cursive;
   border: 1px solid #acacac;
@@ -381,23 +389,23 @@ body {
   background-color: #acacac;
 }
 
-.folder_container .textbox .textbox:focus, .task_container .textbox .textbox:focus {
+.folder_container .textbox .textbox:focus, .task_container .textbox .textbox:focus, .group_container .textbox .textbox:focus {
   width: 500px;
   outline: none;
 }
 
-.folder_container.create label, .create.task_container label {
+.folder_container.create label, .create.task_container label, .create.group_container label {
   font-weight: bold;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(70%, #f5ff99));
   background: linear-gradient(transparent 70%, #f5ff99 70%);
   margin-right: 20px;
 }
 
-.folder_container.delete .delete_alert, .delete.task_container .delete_alert {
+.folder_container.delete .delete_alert, .delete.task_container .delete_alert, .delete.group_container .delete_alert {
   font-weight: bold;
 }
 
-.folder_container.delete .folder_item, .delete.task_container .folder_item {
+.folder_container.delete .folder_item, .delete.task_container .folder_item, .delete.group_container .folder_item {
   font-weight: bold;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(70%, transparent), color-stop(70%, #f5ff99));
   background: linear-gradient(transparent 70%, #f5ff99 70%);
@@ -863,6 +871,55 @@ body {
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.5);
           box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.group_wrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.group_mes {
+  color: #eed255;
+  font-family: cursive;
+}
+
+.group_search_result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+}
+
+.group_search_result_name {
+  border-bottom: 3px solid #98f0fc;
+}
+
+.group_search_result_enter {
+  display: inline-block;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: rgba(128, 133, 141, 0.8);
+  margin-left: 20px;
+}
+
+.group_search_result_enter:hover {
+  background-color: #80858d;
 }
 
 .group_create_input {

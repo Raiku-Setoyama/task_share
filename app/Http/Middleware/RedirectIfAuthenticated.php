@@ -19,7 +19,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('two_factor_auth/login_form');
+            return redirect('login');
+            // 二段階認証の場合は'two_factor_auth/login_form'
         }
 
         return $next($request);

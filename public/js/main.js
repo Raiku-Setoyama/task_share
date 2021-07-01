@@ -172,7 +172,7 @@ $(".complete_task_list").on('click',function(){
 })
 $(".btn-member").on('click',function(){
     $(".container").toggleClass('move-left');
-    $(".basic_menu.group_menu").toggleClass('display_block');
+    $(".group_menu").toggleClass('display_block');
 })
 $(".member_list_btn").on('click',function(){
     $(".member_table").toggleClass('display_block');

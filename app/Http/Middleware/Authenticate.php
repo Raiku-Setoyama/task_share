@@ -15,7 +15,8 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('two_factor_auth');
+            return route('login');
+            // 二段階認証の場合は'two_factor_auth'
         }
     }
 }
