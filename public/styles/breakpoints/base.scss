@@ -825,6 +825,19 @@ body {
             border-radius: 5px;
             box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
         }
+
+        & .wait_user li{
+            margin-bottom: 15px;
+        }
+        & .group_member{
+            border-collapse: separate;
+            border-spacing: 5px;
+
+            & .member_task_count span{
+                width: 10px;
+            }
+        }
+
     }
 }
 

@@ -873,6 +873,19 @@ body {
           box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.5);
 }
 
+.basic_menu.group_menu .wait_user li {
+  margin-bottom: 15px;
+}
+
+.basic_menu.group_menu .group_member {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+.basic_menu.group_menu .group_member .member_task_count span {
+  width: 10px;
+}
+
 .group_wrapper {
   width: 80%;
   margin: 0 auto;

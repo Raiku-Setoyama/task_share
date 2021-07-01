@@ -18,9 +18,9 @@ class UserTableSeeder extends Seeder
         foreach(range(1,3) as $num){
             DB::table('users')->insert([
                 'id' => $num,
-                'name' =>"サンプル {$num}",
-                'email' =>"test {$num} @test.com",
-                'password' =>"password {$num}",
+                'name' =>"サンプル{$num}",
+                'email' =>"test{$num}@test.com",
+                'password' =>"password{$num}",
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
