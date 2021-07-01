@@ -2,24 +2,21 @@
 
 # Task Share
 
-シンプルなデザインにより、視覚的な分かりやすさにこだわったチームタスク管理アプリです。
-チーム員の担当タスク数の表示や各タスクごとにチャット機能とメモ機能を付けることで、タスクの振り分け・進捗管理・話し合いなど、これ一つで一括管理できます。
+シンプルなデザインにより、視覚的に分かりやすいチームタスク管理アプリです。  
+チーム員の担当タスク数の表示や各タスクごとのチャット&メモ機能により、タスクの振り分け・進捗管理・話し合いなど、これ一つで一括管理できます。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 制作した目的
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+主に2つです。
 
-## Learning Laravel
+#### 1. オンラインでも、チーム全体の進捗状況を把握できる
+コロナ渦のようにオンラインでのチーム作業では情報共有の機会が圧倒的に少なくなります。  
+チーム全体で「誰が何をやっているのか」を一目で把握できるようにしました。
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### 2. タスクをあとからも振り返りやすくする  
+タスクごとにチャットとメモ機能を付けることで、進捗過程や要点を簡単に振り返られるようにしました。  
+またチャットで「進捗過程」、メモで「まとめ」を確認できるので、わざわざ議事録などにまとめ直す手間も省けます。
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## Laravel Sponsors
 
