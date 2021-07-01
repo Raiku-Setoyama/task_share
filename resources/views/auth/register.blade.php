@@ -22,7 +22,7 @@
         </span>
         </a>                
         <div class="nav-btn-group">
-            <a class=" btn nav-btn" href="{{ route('two_factor_auth') }}">ログイン</a>
+            <a class=" btn nav-btn" href="{{ route('login') }}">ログイン</a>
             <a class=" btn nav-btn" href="{{ route('register') }}">会員登録</a>
         </div>
     </nav>
