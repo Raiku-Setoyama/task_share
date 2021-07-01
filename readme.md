@@ -2,7 +2,8 @@
 
 # Task Share
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+シンプルなデザインにより、視覚的な分かりやすさにこだわったチームタスク管理アプリです。
+チーム員の担当タスク数の表示や各タスクごとにチャット機能とメモ機能を付けることで、タスクの振り分け・進捗管理・話し合いなど、これ一つで一括管理できます。
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
