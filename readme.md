@@ -15,26 +15,29 @@
 
 #### 2. タスクをあとからも振り返りやすくする  
 タスクごとにチャットとメモ機能を付けることで、進捗過程や要点を簡単に振り返られるようにしました。  
-またチャットで「進捗過程」、メモで「まとめ」を確認できるので、わざわざ議事録などにまとめ直す手間も省けます。
+またチャットで「進捗過程」、メモで「まとめ」を振り返られるので、議事録などにまとめ直す手間も省けます。
 
 
 ## 使い方
 
-#### トップ画面
+### トップ画面
+___
 ![トップ画面](readme_group_home.png)
 
 チームタスクが付箋メモとして表示されています。  
 緊急性と重要性に応じて、ドラッグで自由に配置できます。  
 またタスク内の【担当する！】により、押したユーザーの個人タスクへ追加できます。  
-
-#### トップ画面(サイド)
+ 
+### トップ画面(サイド)
+___
 ![サイド画面](readme_group_menu.png)
 
-トップ画面の右上にあるチーム名ボタンを押すと、チームメニューが表示されます。  
-メニューにはメンバー名とメンバーの担当タスク数を確認できます。  
+トップ画面右上のチーム名ボタンを押すと、チームメニューが表示されます。  
+メニューではメンバー名とメンバーの担当タスク数を確認できます。  
 管理者のみ管理者メニューが表示されます。
-
-#### チャット&メモ画面
+ 
+### チャット&メモ画面
+___
 ![チャット&メモ画面](readme_group_chat.png)
 
 トップ画面のタスク内の【More】を押すと、上記の画面が表示されます。  
@@ -42,13 +45,26 @@
 
 
 
-## Contributing
+## URL
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+http://heroku-task-share.herokuapp.com/  
 
-## Security Vulnerabilities
+【テストアカウント】  
+メールアドレス：test1@test.com  
+パスワード：test12021  
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ぜひテストアカウント又は会員登録をして一度ご利用ください！
+
+
+## 使用技術
+
+・HTML/CSS  
+・JavaScript  
+・PHP 7.4.1  
+・Laravel 6.0  
+・MySQL 5.7.24  
+
+##
 
 ## License
 
